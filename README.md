@@ -42,6 +42,14 @@ Video:
 
 https://github.com/user-attachments/assets/602f776e-81ec-434f-b81f-a31e69da59f1
 
+video showing the moving character:
+
+
+
+https://github.com/user-attachments/assets/6b4bf52d-7cde-4131-b6a3-912a682ed0eb
+
+
+
 image of the level:
 
 ![image](https://github.com/user-attachments/assets/95dfa2b9-de76-4534-b11b-f59c163e4127)
