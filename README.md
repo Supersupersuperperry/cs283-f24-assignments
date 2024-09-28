@@ -39,4 +39,3 @@ A04:
 
 Video:
 
-![image](https://github.com/user-attachments/assets/2fa2a339-80c3-4466-b399-04c4128845ac)
