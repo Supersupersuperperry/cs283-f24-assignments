@@ -61,3 +61,17 @@ character:
 Asset used:
 
 Unity Asset Store
+
+A05:
+
+the rigidfollowingcamera:
+
+
+https://github.com/user-attachments/assets/6b529fdd-cde4-404e-8a35-2030225624a7
+
+
+the srpingfollowcamera:
+
+
+https://github.com/user-attachments/assets/8f91a62b-a269-4492-8b8e-389426989def
+
