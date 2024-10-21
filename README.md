@@ -94,4 +94,6 @@ https://github.com/user-attachments/assets/00567cbc-186a-4f97-9d4d-938fe43a60ba
 Degree1 polynomial:
 
 
+https://github.com/user-attachments/assets/ef6a9ad5-084a-41de-9d5f-c391455a9804
+
 
