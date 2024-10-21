@@ -75,3 +75,23 @@ the srpingfollowcamera:
 
 https://github.com/user-attachments/assets/8f91a62b-a269-4492-8b8e-389426989def
 
+A06:
+the bend video:
+
+
+https://github.com/user-attachments/assets/3d58fbaa-cd73-4acc-9e60-5da80b1bbc4b
+
+The gaze video:
+
+https://github.com/user-attachments/assets/c468ab84-c2eb-4738-b24a-546f572e6d1c
+
+
+
+Degree3 polynomial:
+
+https://github.com/user-attachments/assets/00567cbc-186a-4f97-9d4d-938fe43a60ba
+
+Degree1 polynomial:
+
+
+
