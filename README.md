@@ -96,4 +96,10 @@ Degree1 polynomial:
 
 https://github.com/user-attachments/assets/ef6a9ad5-084a-41de-9d5f-c391455a9804
 
+A07:
+
+
+here is the video showing the collision of an object and the ability to move through the object that didn't set the collision. Also showing two states, idle and walk
+https://github.com/user-attachments/assets/77793f65-eb44-4ab3-95ec-7e0418a9c572
+
 
