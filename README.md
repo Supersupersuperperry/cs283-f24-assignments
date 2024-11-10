@@ -110,4 +110,10 @@ The video of the collection game:
 
 https://github.com/user-attachments/assets/e06813ff-9e47-4e30-a6c3-11af4a6ec7f0
 
+A09:
+
+The video of the wandering npc
+
+https://github.com/user-attachments/assets/e50cafff-7006-477a-ba39-8b01008fbb59
+
 
