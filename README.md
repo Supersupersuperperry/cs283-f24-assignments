@@ -102,4 +102,18 @@ A07:
 here is the video showing the collision of an object and the ability to move through the object that didn't set the collision. Also showing two states, idle and walk
 https://github.com/user-attachments/assets/77793f65-eb44-4ab3-95ec-7e0418a9c572
 
+A08:
+
+The video of the collection game:
+
+
+
+https://github.com/user-attachments/assets/e06813ff-9e47-4e30-a6c3-11af4a6ec7f0
+
+A09:
+
+The video of the wandering npc
+
+https://github.com/user-attachments/assets/e50cafff-7006-477a-ba39-8b01008fbb59
+
 
