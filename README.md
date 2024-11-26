@@ -116,4 +116,21 @@ The video of the wandering npc
 
 https://github.com/user-attachments/assets/e50cafff-7006-477a-ba39-8b01008fbb59
 
+A10:
+
+Behavior Minion:
+
+the minion will perform a crouch when the player get close to it:
+
+
+
+https://github.com/user-attachments/assets/abb41b96-8753-46c3-b277-0c6dc4e10e07
+
+Behavior Unique:
+
+the minion will follow the player:
+
+
+
+https://github.com/user-attachments/assets/487b7c51-deb0-4070-be88-0a79a434454c
 
