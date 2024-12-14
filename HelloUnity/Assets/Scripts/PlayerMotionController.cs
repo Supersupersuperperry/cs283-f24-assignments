@@ -8,14 +8,10 @@ public class PlayerMotionController : MonoBehaviour
     private Animator animator;
     // CharacterController component for handling movement and collisions
     private CharacterController controller;
-    // Variable to track the player's movement speed
-    private float speed = 0f;
     // Movement speed multiplier
     public float movementSpeed = 500f;
-    // Jump force (if needed)
-    public float jumpHeight = 2.0f;
-    // Ground check
-    private bool isGrounded;
+    // Reference to the main camera
+    public Transform cameraTransform;
 
     void Start()
     {
@@ -27,30 +23,29 @@ public class PlayerMotionController : MonoBehaviour
 
     void Update()
     {
-        // Check if the player is on the ground
-        isGrounded = controller.isGrounded;
-
         // Check user input for movement
-        float moveForward = Input.GetAxis("Vertical"); // Get forward/backward movement input
-        float moveSide = Input.GetAxis("Horizontal");  // Get left/right movement input
+        float inputHorizontal = Input.GetAxis("Horizontal"); // Get horizontal input (A/D or Left/Right)
+        float inputVertical = Input.GetAxis("Vertical");     // Get vertical input (W/S or Up/Down)
 
-        // Calculate movement direction
-        Vector3 movement = new Vector3(moveSide, 0, moveForward);
-        speed = movement.magnitude; // Calculate the movement speed based on input
+        // Get camera's forward and right directions
+        Vector3 forward = cameraTransform.forward;
+        forward.y = 0; // Ignore Y-axis for horizontal movement
+        forward.Normalize();
 
-        // Set the Speed parameter in the Animator to control animation states
-        animator.SetFloat("Speed", speed);
+        Vector3 right = cameraTransform.right;
+        right.y = 0; // Ignore Y-axis for horizontal movement
+        right.Normalize();
 
-        // Normalize movement direction and apply speed
-        Vector3 move = movement.normalized * movementSpeed * Time.deltaTime;
+        // Calculate movement direction relative to the camera
+        Vector3 movement = (forward * inputVertical + right * inputHorizontal).normalized;
 
-        // Jump input (if you want to keep jump functionality)
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            move.y = jumpHeight; // Apply upward movement for jump
-        }
+        // Apply movement speed
+        Vector3 move = movement * movementSpeed * Time.deltaTime;
 
         // Move the player using CharacterController
         controller.Move(move);
+
+        // Set the Speed parameter in the Animator to control animation states
+        animator.SetFloat("Speed", movement.magnitude);
     }
 }
