@@ -1,51 +1,63 @@
 using System.Collections;
 using UnityEngine;
+using TMPro; // Use TextMeshPro for UI
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab; // Prefab of the enemy
+    public GameObject enemyPrefab; // The prefab of the enemy to spawn
     public Transform player; // Reference to the player
-    public float spawnInterval = 2f; // Time interval between spawns
-    public int maxEnemies = 5; // Maximum number of enemies in the scene
+    public TextMeshProUGUI defeatCounterText; // TextMeshProUGUI for defeat count display
+    public float spawnInterval = 3f; // Interval between enemy spawns
 
-    private int currentEnemyCount = 0; // Track the current number of enemies
+    private int defeatedEnemies = 0; // Counter for the number of defeated enemies
 
     void Start()
     {
+        // Initialize the defeat counter display
+        UpdateDefeatCounter();
+
+        // Start spawning enemies repeatedly
         StartCoroutine(SpawnEnemies());
     }
 
     IEnumerator SpawnEnemies()
     {
-        while (true)
+        while (true) // Infinite loop to spawn enemies
         {
-            if (currentEnemyCount < maxEnemies)
-            {
-                // Spawn an enemy
-                GameObject enemy = Instantiate(enemyPrefab, GetRandomSpawnPosition(), Quaternion.identity);
-
-                // Assign player reference to the enemy
-                if (enemy.TryGetComponent(out EnemyBehavior enemyBehavior))
-                {
-                    enemyBehavior.player = player;
-                }
-
-                currentEnemyCount++;
-            }
-            yield return new WaitForSeconds(spawnInterval);
+            SpawnEnemy(); // Spawn a new enemy
+            yield return new WaitForSeconds(spawnInterval); // Wait for the specified interval before spawning the next one
         }
     }
 
-    Vector3 GetRandomSpawnPosition()
+    void SpawnEnemy()
     {
-        float spawnRadius = 10f;
-        Vector3 randomPos = Random.insideUnitSphere * spawnRadius;
-        randomPos.y = 0; // Keep the enemy on the ground
-        return transform.position + randomPos;
+        // Instantiate a new enemy at the spawner's position
+        GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+
+        // Get the EnemyBehavior component from the spawned enemy
+        EnemyBehavior enemyBehavior = newEnemy.GetComponent<EnemyBehavior>();
+        if (enemyBehavior != null)
+        {
+            enemyBehavior.player = player; // Assign the player as the enemy's target
+            enemyBehavior.onEnemyDefeated += OnEnemyDefeated; // Subscribe to the onEnemyDefeated event
+        }
     }
 
     public void OnEnemyDefeated()
     {
-        currentEnemyCount--;
+        // Increment the count of defeated enemies
+        defeatedEnemies++;
+
+        // Update the defeat counter display
+        UpdateDefeatCounter();
+    }
+
+    void UpdateDefeatCounter()
+    {
+        // If the defeat counter text is assigned, update its display
+        if (defeatCounterText != null)
+        {
+            defeatCounterText.text = $"Defeated: {defeatedEnemies}";
+        }
     }
 }

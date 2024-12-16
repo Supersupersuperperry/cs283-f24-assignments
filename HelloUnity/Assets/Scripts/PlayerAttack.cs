@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public float attackRange = 2f; // The range within which the player can attack
-    public KeyCode attackKey = KeyCode.Space; // The key to trigger the attack
-    public int attackDamage = 1; // Damage dealt to the enemy per attack
+    public float attackRange = 2f; // Attack range
+    public KeyCode attackKey = KeyCode.Space; // Key to trigger attack
+    public float attackCooldown = 1f; // Time between attacks
+    private float lastAttackTime = -1f; // Tracks the last attack time
+
+    private Animator animator; // Animator for attack animations
+
+    void Start()
+    {
+        // Get the Animator component
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -17,6 +26,22 @@ public class PlayerAttack : MonoBehaviour
 
     void PerformAttack()
     {
+        // Check if the cooldown period has passed
+        if (Time.time - lastAttackTime < attackCooldown)
+        {
+            Debug.Log("Attack is on cooldown.");
+            return; // Exit if cooldown is not finished
+        }
+
+        // Update the last attack time
+        lastAttackTime = Time.time;
+
+        // Play attack animation
+        if (animator)
+        {
+            animator.SetTrigger("Attack");
+        }
+
         // Detect all colliders within the attack range
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
 
@@ -25,20 +50,15 @@ public class PlayerAttack : MonoBehaviour
             // Check if the collider belongs to an enemy
             if (collider.CompareTag("Enemy"))
             {
-                // Attempt to get the EnemyBehavior component
+                // Get the EnemyBehavior component
                 EnemyBehavior enemy = collider.GetComponent<EnemyBehavior>();
                 if (enemy != null)
                 {
                     // Deal damage to the enemy
-                    enemy.TakeDamage(attackDamage);
-                    Debug.Log("Enemy hit: " + collider.gameObject.name + ", Damage: " + attackDamage);
-                }
-                else
-                {
-                    Debug.LogWarning("Detected an object with the 'Enemy' tag but no EnemyBehavior component.");
+                    enemy.TakeDamage(1); // You can adjust the damage value
                 }
 
-                // Optional: Stop after hitting one enemy
+                // Stop after hitting one enemy (optional)
                 break;
             }
         }

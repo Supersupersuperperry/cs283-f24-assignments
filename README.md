@@ -134,3 +134,21 @@ the minion will follow the player:
 
 https://github.com/user-attachments/assets/487b7c51-deb0-4070-be88-0a79a434454c
 
+Final Project:
+
+Features:
+
+- Playercontrol: Implemented basic player movement using keyboard controls (WASD)
+- PlayerHealth: Control the health of the player and remove the player when the health is zero
+- Enemyspawner: spawn enemy at a place
+- Enemybehavior: control the behavior of enemy and the health of the enemy
+- Playermotioncontroller: control the animation and the sword of the player control the third person pov
+- Playerattack: control the attack of the player
+- Canon Pop: A short bgm I made for this game revealing the tragic fate that the robot have to fight robot of the same kind.
+
+How to play:
+
+- Use the WASD keys to move the player around the scene.
+- Use the mouse to adjust vision
+- Press space to attack, the attack cooldown is 1 second.
+- The Escape key will quit the game.
