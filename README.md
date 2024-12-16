@@ -152,3 +152,6 @@ How to play:
 - Use the mouse to adjust vision
 - Press space to attack, the attack cooldown is 1 second.
 - The Escape key will quit the game.
+
+  link to the exe file:
+https://drive.google.com/drive/folders/1c2Qf9k670m4Zge_Dd14-DmuwhWWr_-Ux?usp=sharing
